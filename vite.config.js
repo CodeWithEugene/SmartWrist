@@ -28,7 +28,7 @@ export default defineConfig({
             ],
             refresh: false,
         }),
-        
+
         viteStaticCopy({
             targets: [
                 {
