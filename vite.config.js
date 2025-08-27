@@ -8,9 +8,26 @@ export default defineConfig({
         rtl: true,
         outDir: 'public/build/',
         cssCodeSplit: true,
-        
+        rollupOptions: {
+            // Explicit inputs to avoid index.html requirement
+            input: [
+                'resources/sass/main.scss',
+                'resources/js/main.js',
+                'resources/js/index.js',
+                'resources/js/index2.js',
+            ],
+        },
     },
     plugins: [
+        laravel({
+            input: [
+                'resources/sass/main.scss',
+                'resources/js/main.js',
+                'resources/js/index.js',
+                'resources/js/index2.js',
+            ],
+            refresh: false,
+        }),
         
         viteStaticCopy({
             targets: [
